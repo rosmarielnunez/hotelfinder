@@ -1,0 +1,76 @@
+<section class="w-full flex justify-center items-center overflow-x-hidden">
+    <div class="container mx-auto flex justify-center items-center max-w-[1536px] px-6">
+    <button id="dropdownButton" (click)="toggleDropdown()"
+        class="text-gray-700 border-2 border-green-900 bg-gray-100 rounded-l-full focus:outline-none font-medium text-sm px-5 py-2.5 text-center inline-flex items-center w-[120px] h-[42px]"
+        type="button">Filter
+        <svg class="pl-1 hover:w-8 hover:h-8" xmlns="http://www.w3.org/2000/svg" width="1.6rem" height="1.6rem"
+            viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M10.788 3.102c.495-1.003 1.926-1.003 2.421 0l2.358 4.778l5.273.766c1.107.16 1.549 1.522.748 2.303l-3.816 3.719l.901 5.25c.19 1.104-.968 1.945-1.959 1.424l-3.956-2.08a6.6 6.6 0 0 0 .24-1.569l4.145 2.18l-.862-5.03a1.35 1.35 0 0 1 .388-1.194l3.654-3.562l-5.05-.734a1.35 1.35 0 0 1-1.016-.739L11.998 4.04L9.74 8.614a1.35 1.35 0 0 1-1.016.739l-5.05.734l1.158 1.129a6.5 6.5 0 0 0-1.517.616l-.906-.883c-.801-.781-.359-2.142.748-2.303L8.43 7.88zM12 17.5a5.5 5.5 0 1 1-11 0a5.5 5.5 0 0 1 11 0M3.5 17a.5.5 0 0 0 0 1h4.793l-1.647 1.646a.5.5 0 1 0 .708.707l2.5-2.5a.5.5 0 0 0 0-.707l-2.5-2.5a.5.5 0 1 0-.708.707L8.293 17z" />
+        </svg>
+        <svg class="w-4 h-4 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+    </button>
+    <div id="dropdown" [class.hidden]="!dropdownOpen"
+        class="absolute z-10 2xl:left-56 mt-56 bg-white divide-y divide-gray-100 rounded-lg shadow sm:w-[140px]">
+        <ul class="py-2 text-sm text-gray-700">
+            @for(star of stars; track star) {
+            <li class="mb-2 pl-6">
+                <label class="checkbox-container">
+                    <input type="checkbox" [value]="star" (change)="onStarChange($event)" class="cursor-pointer"/>
+                    <span class="checkmark"></span>
+                    {{ star }} stars
+                </label>
+            </li>
+            }
+        </ul>
+    </div>
+    <button type="submit" class="border-2 border-r-0 border-l-0 h-[42px] border-green-900 flex items-center justify-center pl-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 256 256">
+            <g fill="none" stroke="currentColor" stroke-width="16">
+                <path d="m 89.074145,145.23139 -68.17345,68.17344" />
+                <path d="M 111.27275,167.42999 43.099304,235.60344" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m 43.099305,235.60344 a 15.696788,15.696788 0 0 1 -22.19861,0" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m 20.900695,213.40483 a 15.696788,15.696788 0 0 0 0,22.19861" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M 240.65575,86.483932 A 70.635544,70.635544 0 0 1 170.0202,157.11948 70.635544,70.635544 0 0 1 99.384659,86.483932 70.635544,70.635544 0 0 1 170.0202,15.848389 70.635544,70.635544 0 0 1 240.65575,86.483932 Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="m 89.074145,145.23139 22.198605,22.1986" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="m 100.17344,156.33068 19.89988,-19.89987" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="m 70.126446,164.17908 22.198606,22.1986" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M 209.26216,86.483936 A 39.241967,39.241967 0 0 1 170.0202,125.7259" />
+            </g>
+        </svg>
+    </button>
+    <input #searchInput class="w-full h-[42px] pl-2 border-2 border-r-0 border-l-0 border-green-900 focus:outline-none"
+        type="search" placeholder="Search by name..." required [(ngModel)]="filterName" />
+    <button id="filterDropdownButton" (click)="toggleFilterDropdown()"
+        class="border-2 border-l-0 border-green-900 w-[120px] h-[42px] flex items-center justify-end pr-6 rounded-r-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.8rem" height="1.8rem" viewBox="0 0 24 24"
+            class="stroke-gray-600 hover:w-9 hover:h-9">
+            <path fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"
+                d="M21.25 12H8.895m-4.361 0H2.75m18.5 6.607h-5.748m-4.361 0H2.75m18.5-13.214h-3.105m-4.361 0H2.75m13.214 2.18a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm-9.25 6.607a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm6.607 6.608a2.18 2.18 0 1 0 0-4.361a2.18 2.18 0 0 0 0 4.36Z" />
+        </svg>
+    </button>
+    <div id="filterDropdown" [class.hidden]="!filterDropdownOpen"
+        class="absolute sm:right-0 xl:right-0 2xl:right-56 z-10 mt-72 bg-white divide-y divide-gray-100 rounded-lg shadow w-60">
+        <div class="flex flex-col space-y-4 sm:w-2/3 sm:ml-6">
+            <div class="p-4 rounded-md">
+                <label class="block font-medium">Rating</label>
+                <input type="range" min="0" max="5" step="0.1" [(ngModel)]="filterRate" (change)="onRateChange()"
+                    class="cursor-pointer" />
+                <span class="block mt-1">{{filterRate}}</span>
+            </div>
+            <div class="p-4 rounded-md">
+                <label class="block font-medium">Price</label>
+                <input type="range" min="50" max="1000" step="10" [(ngModel)]="filterPrice" (change)="onPriceChange()"
+                    class="cursor-pointer" />
+                <span class="block mt-1">{{filterPrice}}€</span>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
