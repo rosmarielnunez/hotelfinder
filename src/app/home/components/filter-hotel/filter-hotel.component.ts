@@ -30,7 +30,6 @@ export class FilterHotelComponent implements OnInit, AfterViewInit {
     this.searchService.searchObservable.subscribe()
   }
 
-
   ngAfterViewInit(): void {
     fromEvent<any>(this.searchInput?.nativeElement, 'keyup')
       .pipe(
@@ -81,11 +80,11 @@ export class FilterHotelComponent implements OnInit, AfterViewInit {
          if (window.innerWidth <= 1280) {
              dropdown.style.left = "0";
              dropdown.style.right = "0";
-             dropdown.style.maxWidth = "100%";  // Ocupa el ancho completo en pantallas pequeñas
+             dropdown.style.maxWidth = "100%";
          } else {
              dropdown.style.removeProperty("left");
              dropdown.style.right = "auto";
-             dropdown.style.maxWidth = "140px"; // Retorna a un ancho específico en pantallas más grandes
+             dropdown.style.maxWidth = "140px";
              dropdown.style.marginRight = "100px";
          }
      }
