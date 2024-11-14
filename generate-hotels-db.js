@@ -1,4 +1,3 @@
-// Importar las dependencias necesarias
 const fs = require('fs');
 const { faker } = require('@faker-js/faker');
 
