@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListHotelComponent } from './list-hotel.component';
 import { HotelService } from '../../../services/hotel.service';
 import { SearchService } from '../../../services/search.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { of } from 'rxjs';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ListHotelComponent', () => {
   let component: ListHotelComponent;
@@ -24,13 +25,14 @@ describe('ListHotelComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [ListHotelComponent,
-        HttpClientTestingModule],
-      providers: [
+    imports: [ListHotelComponent],
+    providers: [
         { provide: HotelService, useValue: hotelServiceMock },
-        { provide: SearchService, useValue: searchServiceMock }
-      ]
-    }).compileComponents();
+        { provide: SearchService, useValue: searchServiceMock },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+}).compileComponents();
 
     fixture = TestBed.createComponent(ListHotelComponent);
     component = fixture.componentInstance;
