@@ -1,2 +1,2 @@
 # hotelFinder
-Hotel finder width API extern
+Hotel search engine with database created with faker
