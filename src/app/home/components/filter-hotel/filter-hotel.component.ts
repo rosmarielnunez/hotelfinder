@@ -2,15 +2,17 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, AfterVi
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
+import { ClickOutsideFilterDirective } from '../../../directive/click-outside-filter.directive';
 
 @Component({
   selector: 'app-filter-hotel',
   standalone: true,
   imports: [
-    FormsModule
-  ],
+    FormsModule,
+    ClickOutsideFilterDirective
+],
   templateUrl: './filter-hotel.component.html',
-  styleUrl: './filter-hotel.component.scss'
+  styleUrl: './filter-hotel.component.scss',
 })
 export class FilterHotelComponent implements OnInit, AfterViewInit {
   filterName = '';
@@ -94,4 +96,11 @@ export class FilterHotelComponent implements OnInit, AfterViewInit {
     this.filterDropdownOpen = !this.filterDropdownOpen;
   }
 
+  closeDropdown() {
+    this.dropdownOpen= false;
+  }
+
+  closeFilterDropdown() {
+    this.filterDropdownOpen = false;
+  }
 }

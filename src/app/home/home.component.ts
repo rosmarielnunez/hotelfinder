@@ -16,4 +16,3 @@ import { ListHotelComponent } from './components/list-hotel/list-hotel.component
 })
 export class HomeComponent {
 }
-

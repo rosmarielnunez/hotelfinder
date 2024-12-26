@@ -19,6 +19,7 @@ export class ListHotelComponent {
   hotels: Hotel[] = [];
   filteredHotels: Hotel[] = [];
   paginatedHotels: Hotel[] = [];
+  isLoanding = false;
 
   currentPage = 1;
   pageSize = 10;
