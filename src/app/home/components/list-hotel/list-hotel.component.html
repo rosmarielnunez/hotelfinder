@@ -16,7 +16,7 @@
         <h3>{{ hotel.name }}</h3>
         <p>{{ hotel.address }}</p>
         <p>Stars: {{ hotel.stars }}</p>
-        <p>Rating: {{ hotel.rate }}</p>
+        <p>Rating: {{ hotel.rate | number:'1.0-1' }}</p>
         <p>Price: {{ hotel.price | currency: 'EUR' }}</p>
       </div>
       }

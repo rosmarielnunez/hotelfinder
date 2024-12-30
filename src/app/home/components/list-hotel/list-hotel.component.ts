@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FilterHotelComponent } from '../filter-hotel/filter-hotel.component';
 import { HotelService } from '../../../services/hotel.service';
 import { Hotel } from '../../../model/hotel';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, DecimalPipe } from '@angular/common';
 import { SearchService } from '../../../services/search.service';
 
 @Component({
@@ -10,7 +10,8 @@ import { SearchService } from '../../../services/search.service';
   standalone: true,
   imports: [
     FilterHotelComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    DecimalPipe
   ],
   templateUrl: './list-hotel.component.html',
   styleUrl: './list-hotel.component.scss'
