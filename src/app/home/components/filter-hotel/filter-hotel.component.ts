@@ -5,14 +5,13 @@ import { SearchService } from '../../../services/search.service';
 import { ClickOutsideFilterDirective } from '../../../directive/click-outside-filter.directive';
 
 @Component({
-  selector: 'app-filter-hotel',
-  standalone: true,
-  imports: [
-    FormsModule,
-    ClickOutsideFilterDirective
-],
-  templateUrl: './filter-hotel.component.html',
-  styleUrl: './filter-hotel.component.scss',
+    selector: 'app-filter-hotel',
+    imports: [
+        FormsModule,
+        ClickOutsideFilterDirective
+    ],
+    templateUrl: './filter-hotel.component.html',
+    styleUrl: './filter-hotel.component.scss'
 })
 export class FilterHotelComponent implements OnInit, AfterViewInit {
   filterName = '';

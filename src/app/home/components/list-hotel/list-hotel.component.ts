@@ -6,15 +6,14 @@ import { CurrencyPipe, DecimalPipe } from '@angular/common';
 import { SearchService } from '../../../services/search.service';
 
 @Component({
-  selector: 'app-list-hotel',
-  standalone: true,
-  imports: [
-    FilterHotelComponent,
-    CurrencyPipe,
-    DecimalPipe
-  ],
-  templateUrl: './list-hotel.component.html',
-  styleUrl: './list-hotel.component.scss'
+    selector: 'app-list-hotel',
+    imports: [
+        FilterHotelComponent,
+        CurrencyPipe,
+        DecimalPipe
+    ],
+    templateUrl: './list-hotel.component.html',
+    styleUrl: './list-hotel.component.scss'
 })
 export class ListHotelComponent {
   hotels: Hotel[] = [];
