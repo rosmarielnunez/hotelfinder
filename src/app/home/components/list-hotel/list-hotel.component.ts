@@ -38,6 +38,7 @@ export class ListHotelComponent {
   }
 
   loadHotels() {
+    this.isLoanding = true;
     this.hotelService.getHotels().subscribe({
       next: (data: Hotel[]) => {
         this.hotels = data;
@@ -45,6 +46,7 @@ export class ListHotelComponent {
         this.totalItems = data.length;
         this.totalPages = Math.ceil(this.totalItems / this.pageSize);
         this.updatePaginatedHotels();
+        this.isLoanding = false;
       },
       error: (error) => {
         console.log('Error fetching hotels', error);
